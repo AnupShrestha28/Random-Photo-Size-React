@@ -1,16 +1,18 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
+const BASE_URL = 'https://jsonplaceholder.typicode.com/photos';
+
 function App() {
   const [photos, setPhotos] = useState([]);
   const [currentPhoto, setCurrentPhoto] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleClick = () => {
-    fetch('https://jsonplaceholder.typicode.com/photos')
+    fetch(BASE_URL)
       .then(response => response.json())
       .then(data => setPhotos(data))
-      .catch(error => console.log(error));
+      // .catch(error => console.log(error));
   };
 
   useEffect(() => {
